@@ -149,12 +149,12 @@ class Bing:
                 file_type = "jpg"
 
             if self.verbose:
-                print("[%] Downloading Image #{} from {}".format(self.download_count, link))
+                print("{}".format(self.download_count, link))
 
             self.save_image(link, self.output_dir.joinpath("{}_{}.{}".format(
                 self.image_name, str(self.download_count), file_type)))
             if self.verbose:
-                print("[%] File Downloaded !\n")
+                print("")
                 
             # Update progress bar
             if self.download_callback:
@@ -211,4 +211,4 @@ class Bing:
             except urllib.error.URLError as e:
                 logging.error('URLError while making request to Bing: %s', e)
 
-        logging.info("\n\n[%%] Done. Downloaded %d images.", self.download_count)
+        logging.info("")
