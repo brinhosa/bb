@@ -157,8 +157,8 @@ class Bing:
                 #print("[%] File Downloaded !\n")
                 
             # Update progress bar
-            if self.download_callback:
-                self.download_callback(self.download_count)
+            #if self.download_callback:
+            #    self.download_callback(self.download_count)
 
         except Exception as e:
             self.download_count -= 1
