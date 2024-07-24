@@ -50,13 +50,12 @@ def downloader(query, limit=100, output_dir='dataset', adult_filter_off=True,
 
     # Initialize tqdm progress bar
     
-    with tqdm(total=limit, unit='MB', ncols=100, colour="green" ,bar_format='{l_bar}{bar} {total_fmt} MB| Download Speed {rate_fmt} | Estimated Time:  {remaining}') as pbar:
-        def update_progress_bar(download_count):
-            pbar.update(download_count - pbar.n)
-
-        bing = Bing(query, limit, image_dir, adult, timeout, filter, verbose, badsites, name)
-        bing.download_callback = update_progress_bar
-        bing.run()
+    #with tqdm(total=limit, unit='MB', ncols=100, colour="green" ,bar_format='{l_bar}{bar} {total_fmt} MB| Download Speed {rate_fmt} | Estimated Time:  {remaining}') as pbar:
+    #    def update_progress_bar(download_count):
+    #        pbar.update(download_count - pbar.n)
+    bing = Bing(query, limit, image_dir, adult, timeout, filter, verbose, badsites, name)
+    bing.download_callback = update_progress_bar
+    bing.run()
 
         # After progress bar completes, prompt user to view sources
     #source_input = input('\n\nDo you wish to see the image sources? (Y/N): ')
