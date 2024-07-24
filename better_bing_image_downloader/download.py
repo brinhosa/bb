@@ -54,7 +54,7 @@ def downloader(query, limit=100, output_dir='dataset', adult_filter_off=True,
     #    def update_progress_bar(download_count):
     #        pbar.update(download_count - pbar.n)
     bing = Bing(query, limit, image_dir, adult, timeout, filter, verbose, badsites, name)
-    bing.download_callback = update_progress_bar
+    #bing.download_callback = update_progress_bar
     bing.run()
 
         # After progress bar completes, prompt user to view sources
