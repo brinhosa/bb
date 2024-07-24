@@ -149,12 +149,12 @@ class Bing:
                 file_type = "jpg"
 
             if self.verbose:
-                print("[%] Downloading Image #{} from {}".format(self.download_count, link))
+                print("{}".format(self.download_count, link))
 
-            self.save_image(link, self.output_dir.joinpath("{}_{}.{}".format(
-                self.image_name, str(self.download_count), file_type)))
-            if self.verbose:
-                print("[%] File Downloaded !\n")
+            #self.save_image(link, self.output_dir.joinpath("{}_{}.{}".format(
+            #    self.image_name, str(self.download_count), file_type)))
+            #if self.verbose:
+            #    print("[%] File Downloaded !\n")
                 
             # Update progress bar
             if self.download_callback:
