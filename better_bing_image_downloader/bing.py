@@ -87,8 +87,8 @@ class Bing:
         self.image_name = name
         self.download_callback = None
         
-        if self.badsites:
-            logging.info("Download links will not include: %s", ', '.join(self.badsites))
+        #if self.badsites:
+        #    logging.info("Download links will not include: %s", ', '.join(self.badsites))
 
         assert type(limit) == int, "limit must be integer"
         self.limit = limit
@@ -125,18 +125,18 @@ class Bing:
             image = urllib.request.urlopen(request, timeout=self.timeout).read()
             if not imghdr.what(None, image):
                 
-                logging.error('Invalid image, not saving %s', link)
+                #logging.error('Invalid image, not saving %s', link)
                 raise ValueError('Invalid image, not saving %s' % link)
             with open(str(file_path), 'wb') as f:
                 f.write(image)
 
         except urllib.error.HTTPError as e:
             self.sources-=1
-            logging.error('HTTPError while saving image %s: %s', link, e)
+            #logging.error('HTTPError while saving image %s: %s', link, e)
 
         except urllib.error.URLError as e:
             self.sources-=1
-            logging.error('URLError while saving image %s: %s', link, e)
+            #logging.error('URLError while saving image %s: %s', link, e)
 
     def download_image(self, link):
         self.download_count += 1
@@ -148,8 +148,8 @@ class Bing:
             if file_type.lower() not in ["jpe", "jpeg", "jfif", "exif", "tiff", "gif", "bmp", "png", "webp", "jpg"]:
                 file_type = "jpg"
 
-            if self.verbose:
-                print("{}".format(self.download_count, link))
+           #if self.verbose:
+            #    print("{}".format(self.download_count, link))
 
             #self.save_image(link, self.output_dir.joinpath("{}_{}.{}".format(
             #    self.image_name, str(self.download_count), file_type)))
@@ -162,7 +162,7 @@ class Bing:
 
         except Exception as e:
             self.download_count -= 1
-            logging.error('Issue getting: %s\nError: %s', link, e)
+            #logging.error('Issue getting: %s\nError: %s', link, e)
 
     def run(self):
         while self.download_count < self.limit:
@@ -207,8 +207,8 @@ class Bing:
 
                 self.page_counter += 1
             except urllib.error.HTTPError as e:
-                logging.error('URLError while making request to Bing: %s', e)
+                #logging.error('URLError while making request to Bing: %s', e)
             except urllib.error.URLError as e:
-                logging.error('URLError while making request to Bing: %s', e)
+                #logging.error('URLError while making request to Bing: %s', e)
 
         #logging.info("\n\n[%%] Done. Downloaded %d images.", self.download_count)
