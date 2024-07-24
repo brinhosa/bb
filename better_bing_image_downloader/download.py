@@ -46,7 +46,7 @@ def downloader(query, limit=100, output_dir='dataset', adult_filter_off=True,
         logging.error('Failed to create directory. %s', e)
         sys.exit(1)
         
-    logging.info("Downloading Images to %s", str(image_dir.absolute()))
+    #logging.info("Downloading Images to %s", str(image_dir.absolute()))
 
     # Initialize tqdm progress bar
     
@@ -59,14 +59,12 @@ def downloader(query, limit=100, output_dir='dataset', adult_filter_off=True,
         bing.run()
 
         # After progress bar completes, prompt user to view sources
-    source_input = input('\n\nDo you wish to see the image sources? (Y/N): ')
-    if source_input.lower() == 'y':
-        i=1
-        for src in bing.seen:
-            print(f'{str(i)}. {src}')
-            i+=1
-    else:
-        print('Happy Scraping!')
+    #source_input = input('\n\nDo you wish to see the image sources? (Y/N): ')
+    #if source_input.lower() == 'y':
+    i=1
+    for src in bing.seen:
+        print(f'{str(i)}. {src}')
+        i+=1
     
 
 if __name__ == '__main__':
