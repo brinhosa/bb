@@ -89,7 +89,7 @@ def google_image_url_from_webpage(driver, max_number, quiet=False):
                 show_more[0].click()
             time.sleep(3)
         except Exception as e:
-            print("Exception ", e)
+            #print("Exception ", e)
             pass
     
     if len(thumb_elements) == 0:
@@ -107,7 +107,7 @@ def google_image_url_from_webpage(driver, max_number, quiet=False):
                 continue
             elem.click()
         except Exception as e:
-            print("Error while clicking in thumbnail:", e)
+            #print("Error while clicking in thumbnail:", e)
             retry_click.append(elem)
 
     if len(retry_click) > 0:    
@@ -117,7 +117,7 @@ def google_image_url_from_webpage(driver, max_number, quiet=False):
                 if elem.is_displayed() and elem.is_enabled():
                     elem.click()
             except Exception as e:
-                print("Error while retrying click:", e)
+                #print("Error while retrying click:", e)
     
     image_elements = driver.find_elements(By.CLASS_NAME, "islib")
     image_urls = list()
