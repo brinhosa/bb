@@ -63,7 +63,7 @@ def downloader(query, limit=100, output_dir='dataset', adult_filter_off=True,
     #if source_input.lower() == 'y':
     i=1
     for src in bing.seen:
-        print(f'{str(i)}. {src}')
+        print(f'{src}')
         i+=1
     
 
