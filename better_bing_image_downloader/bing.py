@@ -211,4 +211,4 @@ class Bing:
             except urllib.error.URLError as e:
                 logging.error('URLError while making request to Bing: %s', e)
 
-        logging.info("\n\n[%%] Done. Downloaded %d images.", self.download_count)
+        logging.info("")
