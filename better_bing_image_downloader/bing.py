@@ -167,7 +167,7 @@ class Bing:
     def run(self):
         while self.download_count < self.limit:
             if self.verbose:
-                logging.info('\n\n[!]Indexing page: %d\n', self.page_counter + 1)
+                #logging.info('\n\n[!]Indexing page: %d\n', self.page_counter + 1)
             # Parse the page source and download pics
             try:
                 request_url = (
@@ -182,12 +182,12 @@ class Bing:
                 response = urllib.request.urlopen(request)
                 html = response.read().decode('utf8')
                 if html == "":
-                    logging.info("[%] No more images are available")
+                    #logging.info("[%] No more images are available")
                     break
                 links = re.findall('murl&quot;:&quot;(.*?)&quot;', html)
                 if self.verbose:
-                    logging.info("[%%] Indexed %d Images on Page %d.", len(links), self.page_counter + 1)
-                    logging.info("\n===============================================\n")
+                    #logging.info("[%%] Indexed %d Images on Page %d.", len(links), self.page_counter + 1)
+                    #logging.info("\n===============================================\n")
 
                 for link in links:
 
@@ -196,7 +196,7 @@ class Bing:
                         isbadsite = badsite in link
                         if isbadsite:
                             if self.verbose:
-                                logging.info("[!] Link included in badsites %s %s", badsite, link)
+                                #logging.info("[!] Link included in badsites %s %s", badsite, link)
                                 break
                     if isbadsite:
                         continue
@@ -211,4 +211,4 @@ class Bing:
             except urllib.error.URLError as e:
                 logging.error('URLError while making request to Bing: %s', e)
 
-        logging.info("\n\n[%%] Done. Downloaded %d images.", self.download_count)
+        #logging.info("\n\n[%%] Done. Downloaded %d images.", self.download_count)
