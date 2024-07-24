@@ -43,7 +43,7 @@ def downloader(query, limit=100, output_dir='dataset', adult_filter_off=True,
         if not Path.is_dir(image_dir):
             Path.mkdir(image_dir, parents=True)
     except Exception as e:
-        logging.error('Failed to create directory. %s', e)
+        #logging.error('Failed to create directory. %s', e)
         sys.exit(1)
         
     #logging.info("Downloading Images to %s", str(image_dir.absolute()))
