@@ -167,6 +167,7 @@ class Bing:
     def run(self):
         while self.download_count < self.limit:
             if self.verbose:
+                continue
                 #logging.info('\n\n[!]Indexing page: %d\n', self.page_counter + 1)
             # Parse the page source and download pics
             try:
@@ -207,8 +208,10 @@ class Bing:
 
                 self.page_counter += 1
             except urllib.error.HTTPError as e:
+                continue
                 #logging.error('URLError while making request to Bing: %s', e)
             except urllib.error.URLError as e:
+                continue
                 #logging.error('URLError while making request to Bing: %s', e)
 
         #logging.info("\n\n[%%] Done. Downloaded %d images.", self.download_count)
